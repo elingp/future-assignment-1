@@ -9,8 +9,10 @@ public class Driver {
 //        String arg = args[0];
         Scanner in = new Scanner(System.in);
         String arg = in.nextLine();
+
         String capitalizedArg = Capitalize.capitalizeWithLib(arg);
         String[] splittedArg = Capitalize.splitWithLib(capitalizedArg);
+        System.out.println("With Library:");
         System.out.println(Arrays.stream(splittedArg).
                 map(s -> "\"" + s + "\"").
                 collect(Collectors.toList()));
