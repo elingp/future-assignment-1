@@ -1,28 +1,38 @@
 package future.assignment;
 
-import java.util.Scanner;
-import java.lang.*;
+import org.apache.commons.lang3.StringUtils;
 
-public class Capitalization {
-    static void capitalizeWithoutLib(String inString){
+public class Utils {
+
+    public static String capitalizeWithLib(String str) {
+        String[] words = StringUtils.split(str);
+        for (int i = 0; i < words.length; i++) {
+            words[i] = StringUtils.capitalize(words[i]);
+        }
+        return StringUtils.join(words, " ");
+    }
+
+    public static String[] splitWithLib(String str) {
+        return StringUtils.split(str);
+    }
+
+    public static void capitalizeWithoutLib(String inString) {
         StringBuilder outString1 = new StringBuilder("[");
         StringBuilder outString2 = new StringBuilder("");
         boolean isNeedToBeCapital = true;
-        for (int i = 0; i<inString.length(); ++i){
+        for (int i = 0; i < inString.length(); ++i) {
             char c = inString.charAt(i);
-            if (c==' '){
+            if (c == ' ') {
                 isNeedToBeCapital = true;
                 outString1.append(", ");
                 outString2.append(c);
-            }
-            else{
-                boolean isLowerCaseAlphabet = ((int)c >= 96 && (int)c <=122);
+            } else {
+                boolean isLowerCaseAlphabet = ((int) c >= 96 && (int) c <= 122);
                 if (isNeedToBeCapital && isLowerCaseAlphabet) {
-                    c = (char)((int)c - 32);
+                    c = (char) ((int) c - 32);
                     outString1.append(c);
                     outString2.append(c);
-                }
-                else{
+                } else {
                     outString1.append(c);
                     outString2.append(c);
                 }
@@ -34,11 +44,4 @@ public class Capitalization {
         System.out.println(outString2);
     }
 
-    public static void main(String [] args) {
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("Enter input");
-
-        String inString = myObj.nextLine();  // Read user input
-        capitalizeWithoutLib(inString);  // Output user input
-    }
 }
