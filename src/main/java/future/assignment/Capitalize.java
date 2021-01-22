@@ -9,7 +9,6 @@ public class Capitalize {
     }
 
     public static String[] splitWithLib(String str) {
-        String capitalizedStr = capitalizeWithLib(str);
-        return StringUtils.split(capitalizedStr);
+        return StringUtils.split(str);
     }
 }
